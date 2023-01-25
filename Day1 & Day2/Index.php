@@ -124,13 +124,34 @@
     //   next($ages);
     //   $i++;
     // }
+  
+    //Functions
+    // function sum($num1, $num2){
+    //   return $num1 + $num2;
+    // }
+
+    // echo sum(2,4);
+
+    // //we can set default values of arguements
+    // function paint($color = "red"){
+    //   echo "Color of the room is {$color}";
+    // }
+    // paint("blue"); //if we pass something in then it will use the passed value
 
 
-    
-    ?>
+    //Debugging in PHP
+    $color = "red";
+    // var_dump($color); //in string it also displays the length - string(3) "red"
+    $arr = get_defined_vars();
+
+    ?><pre><?php print_r($arr); ?></pre>
   
   </div>
 </body>
 </html>
 
-<pre><?php rsort($arr); print_r($arr);?></pre>
+<pre>
+  <?php 
+  // rsort($arr); print_r($arr);
+  ?>
+</pre>
