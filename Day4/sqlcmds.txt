@@ -1,0 +1,29 @@
+1) CREATE DATABASE widget_corp -> creates a database named widget_corp
+
+2) CREATE TABLE subjects( -> creates table in widget_corp named subjects
+    id int(11) NOT NULL AUTO_INCREMENT, -> column name id with int value upto          11 digits and cannot be NULL which auto increment when a new column is created
+    menu_name varchar(30) NOT NULL,
+    position int(3) NOT NULL,
+    visible tinyint(1) NOT NULL,
+    PRIMARY KEY (id)); ->sets id as primary key
+
+CRUD
+----
+
+3) CREATE ->
+INSERT INTO subjects (menu_name, position, visible) 
+    VALUES('About Widget Corp',1,1);
+
+4) READ ->
+SELECT * FROM subjects
+    WHERE visible = 1
+    ORDER BY position DESC;
+
+5) UPDATE ->
+UPDATE subjects
+    SET position = 3
+    where id=3;
+
+6) DELETE ->
+DELETE FROM subjects 
+    WHERE id=4;
