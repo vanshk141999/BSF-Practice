@@ -1,46 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff Page</title>
-    <link rel="stylesheet" href="./stylesheets/index.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-        theme: {
-            extend: {
-            colors: {
-                clifford: '#da373d',
-            }
-            }
-        }
-        }
-    </script>
-</head>
-<body>
-    <?php
-
-        require_once("./includes/header.php")
-
-    ?>
-    <div class="flex flex-row h-[100%] w-[100%]">
-        <div class="bg-black text-white h-[100vh] w-[20%]">
-
-        
-    
-        </div>
-        <div class="bg-[#FFB3A7] h-[100vh] w-[80%]">
-        
-         
-
-        </div>
+<?php require_once("./includes/functions.php") ?>
+<?php include("./includes/header.php") ?>
+<div class="flex flex-row h-[100%] w-[100%] whitespace-nowrap">
+    <div class="bg-[#15202B] text-white h-[100vh] w-fit text-[#D3D3D4] pr-4">
+        <ul class="sticky top-10 z-50 mt-10 ml-2 ">
+            <li class="my-2"><a href="content.php">> Manage Website Content</a></li>
+            <li class=""><a href="new_user.php">> Add Staff User</a></li>
+            <li class="my-2"><a href="logout.php">> Manage Website Content</a></li>
+        </ul>
     </div>
-    <?php
-
-        require_once("./includes/footer.php")
-
-    ?>
-</body>
-</html>
+    <div class="bg-[#1D2A35] h-[100vh] w-full p-8 text-[#D3D3D4]">
+        <h1 class="text-4xl">Staff Menu</h1>
+        <h3 class="my-2">
+            Welcome to Staff Area, [USERNAME]
+        </h3>
+    </div>
+</div>
+<?php include("./includes/footer.php") ?>

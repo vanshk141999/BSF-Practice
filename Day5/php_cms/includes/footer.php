@@ -19,9 +19,9 @@
     </script>
 </head>
 <body>
-    <footer class="text-center">
-        <p class="text-lg">
-        &copy;Copyright<?php echo date("Y")?> Widget Corp
+    <footer class="text-center p-2 text-[#D3D3D4]">
+        <p class="text-sm">
+        &copy;Copyright<?php echo date("Y")?> Widget Corp.
         </p>
     </footer>
 </body>
