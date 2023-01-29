@@ -9,6 +9,9 @@ body {
   font-family: "Poppins";
 }
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+/* ================== MEDIA QUERIES(Small  Devies) ================== */
+@media screen and (max-width: 600px) {
+  html {
+    display: none;
+  }
 }
