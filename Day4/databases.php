@@ -21,22 +21,21 @@
 <body>
     <?php
     
-    //3. Perform Database query
-    $result = mysqli_query($connection,"SELECT * FROM subjects"); //result will be known as resource which contains all the rows from database
-    if(!$result){
-        die("Database connection failed:".mysqli_error());
-    }
-    ?>
+        //3. Perform Database query
+        $result = mysqli_query($connection,"SELECT * FROM subjects"); //result will be known as resource which contains all the rows from database
+        if(!$result){
+            die("Database connection failed:".mysqli_error());
+        }
+        ?>
 
-    <table border>
-        <tr><th>ID</th><th>Menu Name</th><th>Position</th><th>Visible</th></tr>
+        <table border>
+            <tr><th>ID</th><th>Menu Name</th><th>Position</th><th>Visible</th></tr>
+        <?php
 
-    <?php
-
-    //4. Use returned Data
-    while($row = mysqli_fetch_array($result)){
-        echo "<tr><td>".$row["id"]."</td><td>".$row["menu_name"]."</td><td>".$row["position"]."</td><td>".$row["visible"]."</td></tr>";
-    }
+        //4. Use returned Data
+        while($row = mysqli_fetch_array($result)){
+            echo "<tr><td>".$row["id"]."</td><td>".$row["menu_name"]."</td><td>".$row["position"]."</td><td>".$row["visible"]."</td></tr>";
+        }
     
     ?>
     </table>
