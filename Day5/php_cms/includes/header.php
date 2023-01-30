@@ -18,6 +18,9 @@
             }
         }
         }
+        function hideMessage(){
+            document.getElementById("close-update-message").classList.add("hidden");
+        }
     </script>
 </head>
 <body class="bg-[#0D1721]">

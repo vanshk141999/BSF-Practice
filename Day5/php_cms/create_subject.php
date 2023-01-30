@@ -3,7 +3,12 @@
 
 <?php
 
-    $menu_name = $_POST['menu_name'];
+    //mysqli_real_escape_string(mysqli $mysql, string $string);
+
+    $menu_name = ucfirst(
+        // addslashes($_POST['menu_name'])
+        mysqli_real_escape_string($connection, $_POST['menu_name'])
+    );
     $position = $_POST['position'];
     $visibility = $_POST['visible'];
 
@@ -26,8 +31,9 @@
 
 <?php
 
-    //5. Close Database connection
+    //Close Database connection
     if(isset($connection)){
         mysqli_close($connection);
     }
+    
 ?>

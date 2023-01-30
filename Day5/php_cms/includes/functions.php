@@ -1,5 +1,6 @@
 <!-- stores basic functions -->
 <?php
+
     function check_connection($connection){
         if(!$connection){
             die("Database connection failed:".mysqli_error());
@@ -7,11 +8,15 @@
     }
 
     function get_all_subjects($connection, $subject_id){
+        // $subject_set_query = "SELECT * FROM subjects WHERE visible=\"1\" OR visible=\"0\"";
+        // if(isset($subject_id)){
+        //     $subject_set_query .= "AND id=$subject_id ";
+        // }
         $subject_set_query = "SELECT * FROM subjects ";
         if(isset($subject_id)){
             $subject_set_query .= "WHERE id=$subject_id ";
         }
-        $subject_set_query .= "WHERE visible=\"1\" ORDER BY position ASC";
+        $subject_set_query .= "ORDER BY position ASC";
         //Perform Database query for subjects
         $subject_set = mysqli_query($connection, $subject_set_query);
         check_connection($subject_set);
@@ -46,7 +51,7 @@
     }
 
     function nav_menu($connection, $selected_subj, $selected_page){
- 
+
         $subject_set = get_all_subjects($connection, NULL);
 
         //Using returned Data
@@ -60,7 +65,7 @@
             ?>
             <?php 
             
-            echo "mb-2 mt-8 text-xl\""."><a href=\"content.php?subj=".urlencode($subject["id"])."\">".$subject["menu_name"]."</a></li>";
+            echo "mb-2 mt-8 text-xl\""."><a href=\"edit_subject.php?subj=".urlencode($subject["id"])."\">".$subject["menu_name"]."</a></li>";
 
                 //Perform Database query for pages
                 $page_set = get_all_pages($connection, $subject, NULL);
@@ -80,4 +85,5 @@
                 }
         }
     }
+
 ?>

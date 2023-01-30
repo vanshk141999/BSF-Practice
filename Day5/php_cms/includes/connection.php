@@ -1,6 +1,7 @@
 <?php require_once("constants.php") ?>
 <?php
 
+    //Create a Database Connection
     $connection = mysqli_connect(DB_SERVER,DB_USER,"");
     if(!$connection){
         die("Database connection failed:".mysqli_error());

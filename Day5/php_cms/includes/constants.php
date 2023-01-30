@@ -9,4 +9,5 @@
 
     //Get Base URL
     define("uri","http://127.0.0.1/bsf%20practice/Day5/php_cms/");
+    
 ?>
