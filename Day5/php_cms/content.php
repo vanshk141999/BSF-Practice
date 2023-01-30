@@ -14,7 +14,7 @@
         <?php
 
             if(isset($selected_subj)){
-            $subject_by_id = get_all_subjects($connection,$selected_subj);
+            $subject_by_id = get_all_subjects($connection,$selected_subj,NULL);
             if($selected_subject = mysqli_fetch_array($subject_by_id)){
                 echo "<h1 class=\"text-4xl text-[#00A86C]\">".$selected_subject['menu_name']."</h1>";
             }
@@ -28,6 +28,7 @@
             if($selected_page = mysqli_fetch_array($page_by_id)){
                 echo "<h1 class=\"text-4xl text-[#00A86C]\">".$selected_page['menu_name']."</h1>";
                 echo "<p class=\"my-2\">".$selected_page['content']."</p>";
+                echo "<a class=\"my-2 mb-8 text-emerald-400\" href=\"edit_page.php?page=".$selected_page['id']."\">Edit this Page</a>";
             }
         }
         

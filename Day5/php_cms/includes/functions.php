@@ -7,16 +7,22 @@
         }
     }
 
-    function get_all_subjects($connection, $subject_id){
+    function get_all_subjects($connection, $subject_id, $visible){
         // $subject_set_query = "SELECT * FROM subjects WHERE visible=\"1\" OR visible=\"0\"";
         // if(isset($subject_id)){
         //     $subject_set_query .= "AND id=$subject_id ";
         // }
         $subject_set_query = "SELECT * FROM subjects ";
         if(isset($subject_id)){
-            $subject_set_query .= "WHERE id=$subject_id ";
+            $subject_set_query .= "WHERE id=$subject_id";
         }
-        $subject_set_query .= "ORDER BY position ASC";
+        if(isset($visible)){
+            $subject_set_query .= "WHERE visible = 1";
+        }
+        // else{
+        //     $subject_set_query .= " ";
+        // }
+        $subject_set_query .= " ORDER BY position ASC";
         //Perform Database query for subjects
         $subject_set = mysqli_query($connection, $subject_set_query);
         check_connection($subject_set);
@@ -52,7 +58,7 @@
 
     function nav_menu($connection, $selected_subj, $selected_page){
 
-        $subject_set = get_all_subjects($connection, NULL);
+        $subject_set = get_all_subjects($connection, NULL, NULL);
 
         //Using returned Data
         while($subject = mysqli_fetch_array($subject_set)){
@@ -81,7 +87,45 @@
                     ?>
                     <?php 
                     
-                    echo "mt-1\"><a href=\"content.php?page=".urlencode($page["id"])."\">> ".$page["menu_name"]."</a></li>";
+                    echo "<li class=\"mt-1\"><a href=\"content.php?page=".urlencode($page["id"])."\">> ".$page["menu_name"]."</a></li>";
+                }
+        }
+    }
+
+    function public_nav_menu($connection, $selected_subj, $selected_page){
+
+        $subject_set = get_all_subjects($connection, NULL, 1);
+
+        //Using returned Data
+        while($subject = mysqli_fetch_array($subject_set)){
+            echo "<li class=\"" ?>
+            <!-- Highlight selected subject -->
+            <?php
+            if($subject["id"] == $selected_subj){
+                echo "text-[#00A86C]";
+            }
+            ?>
+            <?php 
+            
+            echo "mb-2 mt-8 text-xl\""."><a href=\"index.php?subj=".urlencode($subject["id"])."\">".$subject["menu_name"]."</a></li>";
+
+            if($subject["id"] == $selected_subj){
+                //Perform Database query for pages
+                $page_set = get_all_pages($connection, $subject, NULL);
+
+                //Using returned Data
+                while($page = mysqli_fetch_array($page_set)){
+                    echo "<li class=\"" ?>
+                    <!-- Highlight selected page -->
+                    <?php
+                    if($page["id"] == $selected_page){
+                        echo "text-[#00A86C]";
+                    }
+                    ?>
+                    <?php 
+                    
+                    echo "<li class=\"mt-1\"><a href=\"index.php?page=".urlencode($page["id"])."\">> ".$page["menu_name"]."</a></li>";
+                    }
                 }
         }
     }

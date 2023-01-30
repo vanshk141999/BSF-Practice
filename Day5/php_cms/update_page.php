@@ -3,30 +3,34 @@
 <?php find_selected_page(); ?>
 <?php
 
-    $id = $_GET['id'];
+    // echo $selected_subj['menu_name'];
+
+    $page = $_GET['page'];
     $menu_name = ucfirst(
         mysqli_real_escape_string($connection, $_POST['menu_name'])
     );
     $position = $_POST['position'];
-    $visibility = $_POST['visible'];
+    $visible = $_POST['visible'];
+    $content = mysqli_real_escape_string($connection, $_POST['content']);
 
-    if($visibility == 0){
+    if($visible == 0){
         $subj = 1; 
     }
 
-    $query = "UPDATE subjects SET 
+    $query = "UPDATE pages SET 
                 menu_name = '{$menu_name}', 
                 position = {$position}, 
-                visible = {$visibility} 
-                WHERE id={$id}";
+                visibility = {$visible}, 
+                content = '{$content}'
+                WHERE id={$page}";
     
     $result = mysqli_query($connection, $query); 
     if(mysqli_affected_rows($connection)==1){
-        header("Location: edit_subject.php?subj={$id}&update=1");
+        header("Location: edit_page.php?page={$page}&update=1");
         exit;
     }
     else{
-        header("Location: edit_subject.php?subj={$id}&update=0");
+        header("Location: edit_page.php?page={$page}&update=0");
         exit;
     }
 

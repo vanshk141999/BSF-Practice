@@ -10,19 +10,29 @@
         </ul>
     </div>
     <div class="bg-[#1D2A35] h-[100vh] w-full p-8 text-[#D3D3D4]">
-        <h1 class="text-4xl">Add Subject</h1>
-        <form class="my-6" action="create_subject.php" method="post">
+        <h1 class="text-4xl">Add Page in: <?php
+
+            if(isset($selected_subj)){
+            $subject_by_id = get_all_subjects($connection,$selected_subj,NULL);
+            if($selected_subject = mysqli_fetch_array($subject_by_id)){
+                echo "<span class=\"text-4xl text-[#00A86C]\">".$selected_subject['menu_name']."</span>";
+            }
+            }
+
+        ?></h1>
+        <?php $url= "create_page.php?subj=".$selected_subject['id'] ?>
+        <form class="my-6" action="<?php echo $url ?>" method="post">
             <div class="mb-6">
-                <input name="menu_name" type="text" maxlength="18"  autocomplete="off" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Subject Name[Max 18]" required>
+                <input name="menu_name" type="text" maxlength="18"  autocomplete="off" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Page Name[Max 18]" required>
             </div>
             <div class="mb-6">
                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Position</label>
                 <select name="position" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                     <?php
 
-                        $subject_set = get_all_subjects($connection, NULL, NULL);
-                        $subject_count = mysqli_num_rows($subject_set);
-                        for($count = 1; $count <= $subject_count+1; $count++){
+                        $page_set = get_all_pages($connection, $selected_subject, NULL);
+                        $page_count = mysqli_num_rows($page_set);
+                        for($count = 1; $count <= $page_count+1; $count++){
                             echo "<option value=\"$count\">".$count."</option>";
                         }
 
@@ -44,6 +54,10 @@
                             <label class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                 No
                             </label>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Content</label>
+                        <textarea name="content" id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your Content here..."></textarea>
                     </div>
                 </fieldset>
             </div>

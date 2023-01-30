@@ -5,7 +5,7 @@
         <ul class="sticky top-10 z-50 mt-10 ml-2 ">
             <li class="my-2"><a href="content.php">> Manage Website Content</a></li>
             <li class=""><a href="new_user.php">> Add Staff User</a></li>
-            <li class="my-2"><a href="logout.php">> Manage Website Content</a></li>
+            <li class="my-2"><a class="text-[red]" href="logout.php">> Log Out</a></li>
         </ul>
     </div>
     <div class="bg-[#1D2A35] h-[100vh] w-full p-8 text-[#D3D3D4]">
