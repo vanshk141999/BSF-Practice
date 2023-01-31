@@ -1,3 +1,4 @@
+<?php require_once("./includes/session.php") ?>
 <?php require_once("constants.php") ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +31,12 @@
                 <a href="<?php echo uri; ?>">WIDGET CORP.</a>
             </div>
             <div>
-                <?php           
+                <?php if(!logged_in()){
+                    echo "<a class=\"mr-2 text-emerald-400\" href=\"login.php\">Login</a>";} 
+                    else{
+                    echo "<a class=\"mr-2 text-[red]\" href=\"logout.php\">Logout</a>";} 
+                    ?>
+                <?php
                     $date = date('d-m-y');
                     echo "DATE: ".$date;
                 ?>

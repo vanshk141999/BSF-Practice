@@ -1,8 +1,5 @@
-<head>
-    <script>
-        function
-    </script>
-</head>
+<?php require_once("./includes/session.php") ?>
+<?php confirm_logged_in() ?>
 <?php require_once("./includes/connection.php") ?>
 <?php require_once("./includes/functions.php") ?>
 
