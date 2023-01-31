@@ -15,7 +15,7 @@
             $page_by_id = get_all_pages($connection,NULL,$selected_page);
                 if($selected_page = mysqli_fetch_array($page_by_id)){
                     echo "<h1 class=\"text-4xl text-[#00A86C]\">".$selected_page['menu_name']."</h1>";
-                    echo "<p class=\"my-2\">".$selected_page['content']."</p>";
+                    echo "<p class=\"my-2\">".strip_tags(nl2br($selected_page['content']), "<b><br><p><a>")."</p>";
                 }
             }elseif(isset($selected_subj)){
                 if(isset($selected_subj)){

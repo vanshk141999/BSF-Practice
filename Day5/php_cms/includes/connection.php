@@ -1,3 +1,4 @@
+<!-- includes folder's files are secured using server -->
 <?php require_once("constants.php") ?>
 <?php
 

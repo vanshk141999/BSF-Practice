@@ -1,3 +1,5 @@
+<?php require_once("./includes/session.php") ?>
+<?php confirm_logged_in() ?>
 <?php require_once("./includes/functions.php") ?>
 <?php include("./includes/header.php") ?>
 <div class="flex flex-row h-[100%] w-[100%] whitespace-nowrap">
@@ -11,7 +13,7 @@
     <div class="bg-[#1D2A35] h-[100vh] w-full p-8 text-[#D3D3D4]">
         <h1 class="text-4xl">Staff Menu</h1>
         <h3 class="my-2">
-            Welcome to Staff Area, [USERNAME]
+            Welcome to Staff Area, <?php echo $_SESSION['username'] ?>
         </h3>
     </div>
 </div>

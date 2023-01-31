@@ -1,3 +1,5 @@
+<?php require_once("./includes/session.php") ?>
+<?php confirm_logged_in() ?>
 <?php require_once("./includes/connection.php") ?>
 <?php require_once("./includes/functions.php") ?>
 <?php include("./includes/header.php") ?>
@@ -27,7 +29,7 @@
             $page_by_id = get_all_pages($connection,NULL,$selected_page);
             if($selected_page = mysqli_fetch_array($page_by_id)){
                 echo "<h1 class=\"text-4xl text-[#00A86C]\">".$selected_page['menu_name']."</h1>";
-                echo "<p class=\"my-2\">".$selected_page['content']."</p>";
+                echo "<p class=\"my-2\">".strip_tags(nl2br($selected_page['content']), "<b><br><p><a>")."</p>";
                 echo "<a class=\"my-2 mb-8 text-emerald-400\" href=\"edit_page.php?page=".$selected_page['id']."\">Edit this Page</a>";
             }
         }
