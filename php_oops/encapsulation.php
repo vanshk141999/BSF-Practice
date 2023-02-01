@@ -3,6 +3,7 @@
 //The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from users. To achieve this, you must:
 // 1. declare class variables/attributes as private
 // 2. provide public get and set methods to access and update the value of a private variable
+//it is like a blackbox around the object where we only expose the methods and behaviour that are appropriate to them(relevent to public interface)
 
 //public - can be accessed & changed by anyone outside the class
 //private - can only be accessed in the same class in which it is defined

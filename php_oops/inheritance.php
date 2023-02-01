@@ -1,5 +1,6 @@
 <?php
 
+    //Base/Parent Class
     trait Father{
         protected $bill = "Bill";
         // protected function get_bill(){
@@ -21,19 +22,20 @@
 
     }
 
-    class Child extends Mother{ //inherits behaviour from parent class
+    //Sub class
+    class Child extends Mother{ //inherits methods & behaviour from parent class
         //we can also override the behaviour of method from the parent class
         //sub class can access the public and private methods and variables of parent class
         use Father; //for multiple inheritence we use traits
-        public function myCallFather(){
-           return $this->bill;
+        public function myCallFather($new){
+           return $this->bill = $new;
         }
         public function myCallMother(){
             return $this->num;
          }
     }
 
-    $newObjectFather = (new Child())->myCallFather();
+    $newObjectFather = (new Child())->myCallFather("age");
     $newObjectMother = (new Child())->myCallMother();
     // $value = (new Child())->value;
 
