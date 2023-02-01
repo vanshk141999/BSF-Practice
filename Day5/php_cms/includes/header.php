@@ -34,7 +34,8 @@
                 <?php if(!logged_in()){
                     echo "<a class=\"mr-2 text-emerald-400\" href=\"login.php\">Login</a>";} 
                     else{
-                    echo "<a class=\"mr-2 text-[red]\" href=\"logout.php\">Logout</a>";} 
+                    echo "<a class=\"mr-2 text-emerald-400\" href=\"staff.php\">Dashboard</a>";
+                    echo "<a class=\"mr-4 text-[red]\" href=\"logout.php\">Logout</a>";}
                     ?>
                 <?php
                     $date = date('d-m-y');
