@@ -1,4 +1,7 @@
 <?php
+/**
+ * CPT movies single template.
+ */
 
         get_header();
 

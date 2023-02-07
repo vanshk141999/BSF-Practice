@@ -1,13 +1,12 @@
 <?php
 /**
- * Category archive page template
+ * Category archive page for uncategorized category template
  */
 
+    get_header();
 
-get_header();
+        echo "<h1>Category archive</h1>";
 
-echo "<h1>Category archive</h1>";
-
-get_footer();
+    get_footer();
 
 ?>

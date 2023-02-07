@@ -3,11 +3,10 @@
  * Front page template
  */
 
+    get_header();
 
-get_header();
+        echo "<h1>Home page</h1>";
 
-echo "<h1>Home page</h1>";
-
-get_footer();
+    get_footer();
 
 ?>
