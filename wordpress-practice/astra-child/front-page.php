@@ -1,6 +1,6 @@
 <?php
 /**
- * Front page template.
+ * Template for Front page.
  */
 
     get_header();

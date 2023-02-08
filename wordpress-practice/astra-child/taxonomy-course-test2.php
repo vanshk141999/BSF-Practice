@@ -1,6 +1,6 @@
 <?php
 /**
- * Courses taxonomy template for term test2.
+ * Template for Courses taxonomy template for term test2.
  */
 
     get_header();

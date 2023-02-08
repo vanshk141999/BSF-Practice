@@ -1,6 +1,6 @@
 <?php
 /**
- * Category archive page for uncategorized category template.
+ * Template for Category archive page for uncategorized category.
  */
 
     get_header();

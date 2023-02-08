@@ -1,6 +1,6 @@
 <?php
 /**
- * CPT movies single template.
+ * Template for CPT movies single post.
  */
 
         get_header();
