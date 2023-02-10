@@ -33,13 +33,12 @@ function display_bsf_plugins($string, $url){
 	return [$string, $url];
 }
 
-remove_filter( 'add_bsf_plugin_filter', 'display_bsf_plugins', 10 );
+// remove_filter( 'add_bsf_plugin_filter', 'display_bsf_plugins', 10 );
 
-add_action( 'wp_enqueue_scripts','enqueue_cust_script' );
+add_action( 'admin_enqueue_scripts','enqueue_cust_script' );
 
 function enqueue_cust_script(){
 	wp_enqueue_script('bsf-filter', get_template_directory_uri().'/admin/assets/bsf-plugin-filter.js');
 }
-
 
 ?>

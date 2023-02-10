@@ -8,7 +8,11 @@ if (num != -1) {
     let num_of_plugins = Array.from(
       document.querySelector(".displaying-num").innerHTML
     )[0];
-    document.getElementById("num-of-plugins").innerHTML =
-      "(" + num_of_plugins + ")";
+    if (num_of_plugins) {
+      document.getElementById("num-of-plugins").innerHTML =
+        "(" + num_of_plugins + ")";
+    } else {
+      document.getElementById("num-of-plugins").innerHTML = "(0)";
+    }
   };
 }
