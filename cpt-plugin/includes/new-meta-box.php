@@ -12,7 +12,7 @@ add_action('add_meta_boxes_news', 'cpt_add_new_meta_box' );
 
 function cpt_render_news_location_meta_box($post){
     wp_nonce_field( 'news_meta_box_saving', 'news_meta_box_nonce' );
-    $location = cpt_get_news_location( $post->ID )
+    $location = cpt_get_news_location( $post->ID );
     ?>
         <div class="news-location-container">
             <p>
