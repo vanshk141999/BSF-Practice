@@ -37,3 +37,4 @@ require_once dirname(__FILE__)."/includes/add-cpt.php";
 require_once dirname(__FILE__)."/includes/admin-news-settings.php";
 require_once dirname(__FILE__)."/includes/news-content.php";
 require_once dirname(__FILE__)."/includes/news-location.php";
+require_once dirname(__FILE__)."/includes/welcome-screen.php";

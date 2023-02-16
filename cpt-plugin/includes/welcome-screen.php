@@ -1,5 +1,20 @@
 <?php
 
+class cpt_Welcome{
+    function __construct(){
+        add_action( 'admin_enqueue_scripts', array( $this, 'news_welcome_page_styles' ) );
+    }
+
+    function news_welcome_page_styles( $hook ){
+        if( 'dashboard_page_new-welcome-page' != $hook ){
+            return;
+        }
+        wp_enqueue_style( 'news_welcome_page_styles', plugins_url('includes/css/welcome-page.css', cpt_plugin_file ), array(), cpt_plugin_version );
+    }
+}
+
+$cpt_welcome = new cpt_Welcome();
+
 function cpt_welcome_page(){
     add_dashboard_page( 'Welcome', 'Welcome Page', 'read', 'new-welcome-page', 'cpt_show_welcome_page', 'top');
 };

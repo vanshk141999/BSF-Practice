@@ -26,13 +26,26 @@ function cpt_render_news_location_meta_box($post){
                     <?php echo esc_html__( 'Lattitude', 'cpt-plugin') ; ?>
                 </label>
                 <input type="text" id="news-location-lat" name="news_location_lat" value="<?php 
-                echo esc_attr( $location->lat ) ?>">
+                    if( $location === NULL ){
+                        // echo 0;
+                    }
+                    else{
+                        echo esc_attr( $location->lat );
+                    }
+                ?>">
             </p>
             <p>
                 <label for="news-location-lon">
                     <?php echo esc_html__( 'Longititude', 'cpt-plugin') ; ?>
                 </label>
-                <input type="text" id="news-location-lon" name="news_location_lon" value="<?php echo esc_attr( $location->lon ) ?>">
+                <input type="text" id="news-location-lon" name="news_location_lon" value="<?php 
+                    if( $location === NULL ){
+                        // echo 0;
+                    }
+                    else{
+                        echo esc_attr( $location->lon );
+                    }
+                ?>">
             </p>
         </div> 
     <?php

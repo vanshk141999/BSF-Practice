@@ -1,0 +1,10 @@
+$baseColor: rgb(50, 100, 75);
+
+h1 {
+  background-color: lighten($baseColor, 50%);
+  border: darken($baseColor, 10%);
+  color: $baseColor;
+}
+
+// --update: Only compile out-of-date stylesheets.
+// --watch: Watch stylesheets and recompile when they change.

@@ -30,28 +30,8 @@ function cpt_get_news_location( $post_id ){
         return $news_location;
     }
     $news_location = $wpdb->get_row( "SELECT * FROM $table_name WHERE post_id=" . intval( $post_id ) );
-    if( NULL == $news_location ){
-        $wpdb->insert(
-            cpt_get_news_location_table_name(),
-            array(
-                'post_id' => intval( $post_id ),
-            ),
-            array(
-                '%d',
-            )
-            );
-        $news_location = $wpdb->get_row( "SELECT * FROM $table_name WHERE post_id=" . intval( $post_id ) );
-
-        // $news_location = new stdClass;
-        // $news_location->lat='';
-        // $news_location->lon='';
-        // print_r($news_location);
-        return $news_location;
-    }
-    else{
-        set_transient( 'cpt_news_location'. $post_id, $news_location );
-        return $news_location;
-    }
+    set_transient( 'cpt_news_location'. $post_id, $news_location );
+    return $news_location;
 }
 
 function cpt_save_news_location( $post_id, $lat, $lon ){

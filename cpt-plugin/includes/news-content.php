@@ -12,7 +12,9 @@ function cpt_add_location( $content ){
     if(is_singular( post_types:'news' )){
         $location = cpt_get_news_location( get_the_ID() ); 
         // esc_html will not execute HTML
+        if( $location != NULL ){
         $content = '<span>'.esc_html( " / " . $location->lat . ", " . $location->lon ).'</span>'.$content;
+        }
         $content = '<span>'.esc_html( get_post_meta( get_the_ID(), '_news_location', true ) ).'</span>'.$content;
     }
     return $content;
