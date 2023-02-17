@@ -1,0 +1,80 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background: #ffffff;
+}
+
+.header-menu-container {
+  display: flex;
+  gap: 1rem;
+}
+
+header nav h2 {
+  cursor: pointer;
+}
+
+.header-cta {
+  height: 2.2rem;
+  border-color: rgba(0, 0, 0, 0.129);
+  border-radius: 9999px;
+  border-width: 1px;
+  background: white;
+}
+
+.tutorial-container {
+  margin: 1.5rem;
+  margin-top: 1.2rem;
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  gap: 4rem;
+}
+
+.tutorial-container-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+}
+
+.tutorial-container p {
+  font-size: medium;
+}
+
+.welcome-text {
+  display: flex;
+}
+
+.welcome-text h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.welcome-text span {
+  font-size: smaller;
+  color: #056ad2;
+  background: #d8ebfe;
+  height: fit-content;
+  padding: 0 0.5rem 0 0.5rem;
+  border-radius: 50px;
+}
+
+.tutorial-container-video {
+  position: relative;
+  width: 100%;
+}
+
+.astra-video {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+
+#wpcontent {
+  margin-left: 140px;
+}
+
+/*# sourceMappingURL=welcome-page.css.map */
