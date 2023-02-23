@@ -1,0 +1,24 @@
+What does a Task Runner do?
+
+-> Performs repititive tasks
+    - Prefixing CSS rules
+    - Compiling SASS files into CSS
+    - Minifying JS/CSS Files
+    - Concatenating Files
+
+Task Runners ->
+    - Grunt
+    - Gulp
+
+Installing Grunt.JS
+    - Install Node.JS
+    - Install grunt-cli globally
+    - Create a package.json
+    - Install Grunt locally
+    - Create a Gruntfile.js
+    - Install Plugins
+
+What does Grunfile.js do?
+    - Configure our tasks and tells plugins where to find certain files.
+    - Load plugins into the file (eg. uglify).
+    - Register tasks which need to be ran.
