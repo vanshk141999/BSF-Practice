@@ -8,10 +8,20 @@
   "icon": "dashicons-money-alt",
   "description": "A Gutenberg block to show pricing box.",
   "attributes": {
+    "subTitle": {
+      "type": "string",
+      "source": "text",
+      "selector": "p"
+    },
     "price": {
       "type": "string",
       "source": "text",
-      "selector": "div"
+      "selector": "h1"
+    },
+    "points": {
+      "type": "string",
+      "source": "html",
+      "selector": "ul"
     }
   },
   "supports": {

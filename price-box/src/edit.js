@@ -11,7 +11,7 @@ import { TextControl } from "@wordpress/components";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -28,13 +28,34 @@ import { useBlockProps } from "@wordpress/block-editor";
 export default function Edit({ attributes, setAttributes }) {
   const blockProps = useBlockProps();
 
+  // const { subTitle, price } = attributes;
+
   return (
     <div {...blockProps}>
-      <TextControl
-        placeholder="$"
-        value={attributes.price}
-        onChange={(val) => setAttributes({ price: val })}
-      />
+      <div className="price-box">
+        <RichText
+          tagName="p"
+          className="sub-title"
+          placeholder="Premium"
+          value={attributes.subTitle}
+          onChange={(val) => setAttributes({ subTitle: val })}
+        />
+        <RichText
+          tagName="h1"
+          placeholder="$100"
+          value={attributes.price}
+          onChange={(val) => setAttributes({ price: val })}
+        />
+        <ul>
+          <RichText
+            tagName="ul"
+            multiline="li"
+            placeholder=""
+            value={attributes.points}
+            onChange={(val) => setAttributes({ points: val })}
+          />
+        </ul>
+      </div>
     </div>
   );
 }
