@@ -56,11 +56,17 @@ export default function Edit({ attributes, setAttributes }) {
             onChange={(value) => setAttributes({ badge: value })}
           />
           {attributes.badge && (
-            <TextControl
-              label="Recommended Badge Text"
-              value={attributes.badgeText}
-              onChange={(value) => setAttributes({ badgeText: value })}
-            />
+            <>
+              <TextControl
+                label="Recommended Badge Text"
+                value={attributes.badgeText}
+                onChange={(value) => setAttributes({ badgeText: value })}
+              />
+              <ColorPalette
+                value={attributes.badgeColor}
+                onChange={(value) => setAttributes({ badgeColor: value })}
+              />
+            </>
           )}
         </PanelBody>
         <PanelBody title="Buy Now Button Settings">
@@ -77,6 +83,9 @@ export default function Edit({ attributes, setAttributes }) {
             tagName="div"
             className="pricing-badge"
             value={attributes.badgeText}
+            style={{
+              backgroundColor: attributes.badgeColor,
+            }}
             onChange={(value) => setAttributes({ badgeText: value })}
           />
         )}

@@ -32,7 +32,7 @@ export default function save({ attributes }) {
               position: "absolute",
               top: "-10px",
               right: "-10px",
-              backgroundColor: "#4999f8",
+              backgroundColor: attributes.badgeColor,
               color: "#fff",
               padding: "5px 10px",
               fontWeight: "bold",
