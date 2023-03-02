@@ -6,6 +6,8 @@
  */
 import { useBlockProps, RichText } from "@wordpress/block-editor";
 
+import "./price-box.scss";
+
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -22,17 +24,46 @@ export default function save({ attributes }) {
   return (
     <div {...blockProps}>
       <div className="price-box">
-        <RichText.Content
-          tagName="p"
-          style={{ color: "#4999f8" }}
-          value={attributes.subTitle}
-        />
-        <RichText.Content
-          tagName="h1"
-          style={{ borderBottom: "1px solid #4999f8", paddingBottom: "1rem" }}
-          value={attributes.price}
-        />
-        <RichText.Content tagName="ul" value={attributes.points} />
+        {attributes.badge && (
+          <RichText.Content
+            tagName="div"
+            value={attributes.badgeText}
+            style={{
+              position: "absolute",
+              top: "-10px",
+              right: "-10px",
+              backgroundColor: "#4999f8",
+              color: "#fff",
+              padding: "5px 10px",
+              fontWeight: "bold",
+            }}
+          />
+        )}
+        <div>
+          <RichText.Content
+            tagName="p"
+            style={{ color: "#4999f8" }}
+            value={attributes.subTitle}
+          />
+          <RichText.Content
+            tagName="h1"
+            style={{ borderBottom: "1px solid #4999f8", paddingBottom: "1rem" }}
+            value={attributes.price}
+          />
+          <RichText.Content
+            style={{ listStyle: "none" }}
+            tagName="ul"
+            value={attributes.points}
+          />
+          <a href={attributes.buttonUrl}>
+            <RichText.Content
+              style={{ backgroundColor: attributes.buttonColor }}
+              tagName="button"
+              value={attributes.button}
+              href={attributes.buttonUrl}
+            />
+          </a>
+        </div>
       </div>
     </div>
   );

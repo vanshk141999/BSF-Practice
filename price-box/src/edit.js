@@ -3,7 +3,14 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-components/
  */
-import { TextControl } from "@wordpress/components";
+import {
+  Button,
+  ColorPalette,
+  ColorPicker,
+  PanelBody,
+  TextControl,
+  ToggleControl,
+} from "@wordpress/components";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,7 +18,11 @@ import { TextControl } from "@wordpress/components";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, RichText } from "@wordpress/block-editor";
+import {
+  useBlockProps,
+  RichText,
+  InspectorControls,
+} from "@wordpress/block-editor";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -28,11 +39,46 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 export default function Edit({ attributes, setAttributes }) {
   const blockProps = useBlockProps();
 
-  // const { subTitle, price } = attributes;
-
   return (
     <div {...blockProps}>
+      <InspectorControls>
+        <PanelBody title="Recommended Badge Settings">
+          <ToggleControl
+            label="Recommended Badge"
+            help="Enable to show the Recommended Badge"
+            checked={attributes.badge}
+            onChange={(value) => setAttributes({ badge: value })}
+          />
+          {attributes.badge && (
+            <TextControl
+              label="Recommended Badge Text"
+              value={attributes.badgeText}
+              onChange={(value) => setAttributes({ badgeText: value })}
+            />
+          )}
+        </PanelBody>
+        <PanelBody title="Buy Now Button Settings">
+          <TextControl
+            label="Buy Now Button URL"
+            value={attributes.buttonUrl}
+            onChange={(value) => setAttributes({ buttonUrl: value })}
+          />
+          <p>Buy Now Button URL</p>
+          <ColorPalette
+            value={attributes.buttonColor}
+            onChange={(value) => setAttributes({ buttonColor: value })}
+          />
+        </PanelBody>
+      </InspectorControls>
       <div className="price-box">
+        {attributes.badge && (
+          <RichText
+            tagName="div"
+            className="pricing-badge"
+            value={attributes.badgeText}
+            onChange={(value) => setAttributes({ badgeText: value })}
+          />
+        )}
         <RichText
           tagName="p"
           className="sub-title"
@@ -55,6 +101,19 @@ export default function Edit({ attributes, setAttributes }) {
             onChange={(val) => setAttributes({ points: val })}
           />
         </ul>
+        <Button
+          variant="primary"
+          className="buy-now"
+          style={{ backgroundColor: attributes.buttonColor }}
+          href={attributes.buttonUrl}
+        >
+          <RichText
+            tagName="p"
+            placeholder="Buy Now ->"
+            value={attributes.button}
+            onChange={(val) => setAttributes({ button: val })}
+          />
+        </Button>
       </div>
     </div>
   );

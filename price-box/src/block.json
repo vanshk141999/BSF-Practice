@@ -8,20 +8,48 @@
   "icon": "dashicons-money-alt",
   "description": "A Gutenberg block to show pricing box.",
   "attributes": {
+    "badge": {
+      "default": false,
+      "type": "boolean"
+    },
+    "badgeText": {
+      "default": "Recommended",
+      "type": "string",
+      "selector": "div"
+    },
     "subTitle": {
+      "default": "Basic",
       "type": "string",
       "source": "text",
       "selector": "p"
     },
     "price": {
+      "default": "$10/-",
       "type": "string",
       "source": "text",
       "selector": "h1"
     },
     "points": {
+      "default": "<li>List Item</li><li>List Item</li><li>List Item</li><li>List Item</li><li>List Item</li>",
       "type": "string",
       "source": "html",
       "selector": "ul"
+    },
+    "button": {
+      "default": "Buy Now ->",
+      "type": "string",
+      "source": "html",
+      "selector": "button"
+    },
+    "buttonUrl": {
+      "default": "#",
+      "type": "string",
+      "selector": "button"
+    },
+    "buttonColor": {
+      "default": "#4999f8",
+      "type": "string",
+      "selector": "button"
     }
   },
   "supports": {
