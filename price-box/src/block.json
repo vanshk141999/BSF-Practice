@@ -46,7 +46,7 @@
       "type": "string",
       "selector": "button"
     },
-    "buttonColor": {
+    "themeColor": {
       "default": "#4999f8",
       "type": "string",
       "selector": "button"

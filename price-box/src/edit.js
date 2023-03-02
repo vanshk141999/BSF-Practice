@@ -42,6 +42,12 @@ export default function Edit({ attributes, setAttributes }) {
   return (
     <div {...blockProps}>
       <InspectorControls>
+        <PanelBody title="Price Box Theme Color">
+          <ColorPalette
+            value={attributes.themeColor}
+            onChange={(value) => setAttributes({ themeColor: value })}
+          />
+        </PanelBody>
         <PanelBody title="Recommended Badge Settings">
           <ToggleControl
             label="Recommended Badge"
@@ -63,11 +69,6 @@ export default function Edit({ attributes, setAttributes }) {
             value={attributes.buttonUrl}
             onChange={(value) => setAttributes({ buttonUrl: value })}
           />
-          <p>Buy Now Button URL</p>
-          <ColorPalette
-            value={attributes.buttonColor}
-            onChange={(value) => setAttributes({ buttonColor: value })}
-          />
         </PanelBody>
       </InspectorControls>
       <div className="price-box">
@@ -85,12 +86,17 @@ export default function Edit({ attributes, setAttributes }) {
           placeholder="Premium"
           value={attributes.subTitle}
           onChange={(val) => setAttributes({ subTitle: val })}
+          style={{ color: attributes.themeColor }}
         />
         <RichText
           tagName="h1"
           placeholder="$100"
           value={attributes.price}
           onChange={(val) => setAttributes({ price: val })}
+          style={{
+            borderBottom: "1px solid",
+            borderBottomColor: attributes.themeColor,
+          }}
         />
         <ul>
           <RichText
@@ -104,7 +110,7 @@ export default function Edit({ attributes, setAttributes }) {
         <Button
           variant="primary"
           className="buy-now"
-          style={{ backgroundColor: attributes.buttonColor }}
+          style={{ backgroundColor: attributes.themeColor }}
           href={attributes.buttonUrl}
         >
           <RichText

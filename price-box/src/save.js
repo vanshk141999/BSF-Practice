@@ -42,12 +42,16 @@ export default function save({ attributes }) {
         <div>
           <RichText.Content
             tagName="p"
-            style={{ color: "#4999f8" }}
+            style={{ color: attributes.themeColor }}
             value={attributes.subTitle}
           />
           <RichText.Content
             tagName="h1"
-            style={{ borderBottom: "1px solid #4999f8", paddingBottom: "1rem" }}
+            style={{
+              borderBottom: "1px solid",
+              borderBottomColor: attributes.themeColor,
+              paddingBottom: "1rem",
+            }}
             value={attributes.price}
           />
           <RichText.Content
@@ -57,7 +61,7 @@ export default function save({ attributes }) {
           />
           <a href={attributes.buttonUrl}>
             <RichText.Content
-              style={{ backgroundColor: attributes.buttonColor }}
+              style={{ backgroundColor: attributes.themeColor }}
               tagName="button"
               value={attributes.button}
               href={attributes.buttonUrl}
